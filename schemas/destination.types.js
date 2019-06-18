@@ -7,7 +7,7 @@ const {
 } = require('graphql');
 
 const attractionTypes = new GraphQLObjectType({
-  name: 'AttractionType',
+  name: 'AttractionTypes',
   fields: {
     _id: {
       type: GraphQLID

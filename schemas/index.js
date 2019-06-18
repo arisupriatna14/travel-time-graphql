@@ -27,7 +27,7 @@ const schema = new GraphQLSchema({
         type: new GraphQLList(DestinationPopularTypes),
         resolve: async () => {
           try {
-            const { } = await axios.get('http://34.73.189.70/destination-popular/');
+            const { data } = await axios.get('http://34.73.189.70/destination-popular/');
             return data.data;
           } catch (err) {
             console.log('error', err);
