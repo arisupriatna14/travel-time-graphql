@@ -1,8 +1,25 @@
 const {
   GraphQLString,
   GraphQLID,
-  GraphQLObjectType
+  GraphQLObjectType,
+  GraphQLList,
+  GraphQLNonNull
 } = require('graphql');
+
+const attractionTypes = new GraphQLObjectType({
+  name: 'AttractionType',
+  fields: {
+    _id: {
+      type: GraphQLID
+    },
+    name: {
+      type: GraphQLString
+    },
+    images: {
+      type: GraphQLString
+    }
+  }
+});
 
 const DestinationTypes = new GraphQLObjectType({
   name: 'DestinationTypes',
@@ -21,6 +38,9 @@ const DestinationTypes = new GraphQLObjectType({
     },
     description: {
       type: GraphQLString
+    },
+    attraction: {
+      type: GraphQLList(GraphQLNonNull(attractionTypes))
     }
   }
 });
